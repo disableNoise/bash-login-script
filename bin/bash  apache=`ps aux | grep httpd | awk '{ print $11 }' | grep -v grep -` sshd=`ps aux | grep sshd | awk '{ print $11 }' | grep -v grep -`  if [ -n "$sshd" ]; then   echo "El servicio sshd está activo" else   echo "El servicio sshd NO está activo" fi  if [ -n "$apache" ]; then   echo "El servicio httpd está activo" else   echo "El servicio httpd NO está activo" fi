@@ -1,0 +1,16 @@
+#!/bin/bash
+
+apache=`ps aux | grep httpd | awk '{ print $11 }' | grep -v grep -`
+sshd=`ps aux | grep sshd | awk '{ print $11 }' | grep -v grep -`
+
+if [ -n "$sshd" ]; then
+  echo "sshd is active"
+else
+  echo "sshd is NOT active"
+fi
+
+if [ -n "$apache" ]; then
+  echo "httpd is active"
+else
+  echo "httpd is NOT active"
+fi
